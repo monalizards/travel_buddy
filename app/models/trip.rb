@@ -1,5 +1,7 @@
 class Trip < ApplicationRecord
   belongs_to :organizer, class_name: "User"
+  has_many :participations
+  has_many :users, through: :participations
 
   validates :organizer_id, :destination, :start_date, :end_date, :budget,
             :title, :description, :max_participants, presence: true

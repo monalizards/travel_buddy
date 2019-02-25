@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
