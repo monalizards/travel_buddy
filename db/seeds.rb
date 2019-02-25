@@ -13,7 +13,7 @@ require 'faker'
   user.password = Faker::Internet.password(8)
   user.description = "HI, I am #{user.username}. The coolest person on earth"
   user.save
-  if time < 20
+  if time < 5
     trip = Trip.new
     trip.organizer = user
     trip.destination = Faker::Address.country

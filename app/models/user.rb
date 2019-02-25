@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true, length: { in: 5..15 }
 
-  has_many :trips, as: :organizer, dependent: :destroy
+  has_many :trips, as: :organizer, dependent: :delete_all
   has_many :participations
   has_many :trips, through: :participations
 end
