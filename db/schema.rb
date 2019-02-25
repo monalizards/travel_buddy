@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_163053) do
+ActiveRecord::Schema.define(version: 2019_02_25_170017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_participations_on_trip_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "destination"
+    t.string "title"
+    t.text "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "budget"
+    t.integer "max_participants"
+    t.bigint "organizer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organizer_id"], name: "index_trips_on_organizer_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +46,13 @@ ActiveRecord::Schema.define(version: 2019_02_25_163053) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "participations", "trips"
+  add_foreign_key "participations", "users"
+  add_foreign_key "trips", "users", column: "organizer_id"
 end

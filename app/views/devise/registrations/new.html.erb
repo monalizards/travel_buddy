@@ -15,6 +15,9 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :username,
+                required: true %>
+    <%= f.input :description, label: "Description (Optional)" %>
   </div>
 
   <div class="form-actions">
