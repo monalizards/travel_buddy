@@ -1,5 +1,5 @@
 class Trip < ApplicationRecord
-  belongs_to :organizer, class_name: "User"
+  belongs_to :organizer, class_name: 'User'
   has_many :participations
   has_many :users, through: :participations
 
