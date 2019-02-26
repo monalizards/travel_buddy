@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update]
+  before_action :authorize_user, only: [:edit, :show, :update]
 
   def show
   end
@@ -16,6 +17,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authorize_user
+    authorize @user
+  end
 
   def find_user
     @user = User.find(params[:id])
