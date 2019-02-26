@@ -18,6 +18,8 @@
     <%= f.input :username,
                 required: true %>
     <%= f.input :description, label: "Description (Optional)" %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
   </div>
 
   <div class="form-actions">
