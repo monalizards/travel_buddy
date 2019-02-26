@@ -8,7 +8,7 @@ class Participation < ApplicationRecord
   private
 
   def max_reached?
-    if trip.participations.count >= trip.max_participants
+    if trip.participations.count > trip.max_participants
       errors.add(:trip, "Trip has enough people, choose another one")
     end
   end
