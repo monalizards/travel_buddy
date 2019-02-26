@@ -8,3 +8,8 @@
   <%= f.input :max_participants %>
   <%= f.button :submit %>
 <% end %>
+
+<%= simple_form_for(@trip) do |p| %>
+  <%= p.input :photo %>
+  <%= p.input :photo_cache, as: :hidden %>
+<% end %>
