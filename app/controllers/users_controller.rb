@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def trips
+    @trips = Trip.where(organizer_id: params[:user_id])
+    @participations = Participation.where(params[:user_id])
+  end
+
   private
 
   def authorize_user

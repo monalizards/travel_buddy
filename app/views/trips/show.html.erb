@@ -1,22 +1,34 @@
 <div class="container">
   <h1><%= @trip.title %></h1>
+  <div class="trip-photo"></div>
+  <div class="trip-buddy">Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %></div>
   <span><%= @trip.description %></span>
   <h2>Trip details</h2>
   <div class="trip-info-container">
     <div class="trip-info">
-      <span class="info-q">Where?</span> <span class="info-a"><%= @trip.destination %></span>
+      <span class="trip-info-q">Where?</span> <span class="trip-info-a"><%= @trip.destination %></span>
     </div>
     <div class="trip-info">
-      <span class="info-q">When?</span> <span class="info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
+      <span class="trip-info-q">When?</span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
     </div>
     <div class="trip-info">
-      <span class="info-q">Budget?</span> <span class="info-a">HKD$<%= @trip.budget %></span>
+      <span class="trip-info-q">Budget?</span> <span class="trip-info-a">HKD$<%= @trip.budget %></span>
     </div>
     <div class="trip-info">
-      <span class="info-q">Max number of people?</span> <span class="info-a"><%= @trip.max_participants %></span>
-    </div>
-    <div class="trip-info">
-      <span class="info-q">Organised by?</span> <span class="info-a"><%= link_to @trip.organizer.username, user_path(@trip.organizer) %></span>
+      <span class="trip-info-q">Max number of people?</span> <span class="trip-info-a"><%= @trip.max_participants %></span>
     </div>
   </div>
+
+  <h2>Other travellers</h2>
+  <ul>
+    <% @trip.users.each do |user| %>
+      <li>
+        <%= link_to user.username, user_path(user) %>
+      </li>
+    <% end %>
+  </ul>
+  <% if @trip.users.count < @trip.max_participants %>
+    <button><%= link_to "Book", book_trip_path(@trip) %></button>
+  <% end %>
+
 </div>

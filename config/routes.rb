@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       get 'trips'
     end
   end
-  resources :trips
 
+  resources :trips do
+    member do
+      get 'book'
+    end
+  end
 end

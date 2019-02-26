@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :find_trip, only: [:show, :edit, :update, :destroy]
+  before_action :find_trip, only: [:show, :edit, :update, :destroy, :book]
 
   def index
     @trips = policy_scope(Trip).order(created_at: :desc)
@@ -41,6 +41,19 @@ class TripsController < ApplicationController
     authorize @trip
     @trip.destroy
     redirect_to trips_path
+  end
+
+  def book
+    @participation = Participation.new
+    @participation.user = current_user
+    @participation.trip = @trip
+    if @participation.save
+      flash[:notice] = "Cool! You're book onto this trip"
+      redirect_to trip_path(@trip)
+    else
+      flash[:alert] = "Sorry! #{@participation.errors.full_messages.first}"
+      redirect_to trip_path(@trip)
+    end
   end
 
   private
