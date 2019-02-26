@@ -1,0 +1,10 @@
+<%= simple_form_for @trip do |f| %>
+  <%= f.input :title %>
+  <%= f.input :destination %>
+  <%= f.input :description %>
+  <%= f.input :budget %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :max_participants %>
+  <%= f.button :submit %>
+<% end %>
