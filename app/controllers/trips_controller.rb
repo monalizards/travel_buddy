@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
+
   def index
     @trips = Trip.all
   end
@@ -16,6 +17,8 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.organizer = User.all.sample
+
     if @trip.save
       redirect_to trips_path
     else
