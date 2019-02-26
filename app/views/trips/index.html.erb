@@ -1,7 +1,7 @@
 <h1>Trips</h1>
 <ul>
   <% @trips.each do |trip| %>
-    <li><%= trip.title %></li>
+    <li><%= link_to trip.title, trip_path(trip) %></li>
     <%= link_to 'Edit', edit_trip_path(trip) %>
     <%= link_to 'Delete', trip_path(trip), method: :delete %>
   <% end %>
