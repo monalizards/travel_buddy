@@ -1,0 +1,6 @@
+<h1><%= @user.username %></h1>
+<p><%= @user.description %></p>
+<ul><% @user.trips.each do |trip| %>
+  <li><%= trip.title %></li>
+  <% end %>
+</ul>
