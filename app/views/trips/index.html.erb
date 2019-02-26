@@ -3,7 +3,9 @@
 <div class="container">
   <div class="row">
     <% @trips.each do |trip| %>
-      <%= render 'card', trip: trip %>
+      <div class="col-xs-3">
+        <%= render 'card', trip: trip %>
+      </div>
     <% end %>
   </div>
 </div>
