@@ -15,9 +15,12 @@ class TripsController < ApplicationController
   end
 
   def create
-    Trip.create(trip_params)
-
-    redirect_to trips_path
+    @trip = Trip.new(trip_params)
+    if @trip.save
+      redirect_to trips_path
+    else
+      render :new
+    end
   end
 
   def update
