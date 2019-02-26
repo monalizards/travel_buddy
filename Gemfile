@@ -16,6 +16,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pundit'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
