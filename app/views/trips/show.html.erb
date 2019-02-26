@@ -1,2 +1,22 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<div class="container">
+  <h1><%= @trip.title %></h1>
+  <span><%= @trip.description %></span>
+  <h2>Trip details</h2>
+  <div class="trip-info-container">
+    <div class="trip-info">
+      <span class="info-q">Where?</span> <span class="info-a"><%= @trip.destination %></span>
+    </div>
+    <div class="trip-info">
+      <span class="info-q">When?</span> <span class="info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
+    </div>
+    <div class="trip-info">
+      <span class="info-q">Budget?</span> <span class="info-a">HKD$<%= @trip.budget %></span>
+    </div>
+    <div class="trip-info">
+      <span class="info-q">Max number of people?</span> <span class="info-a"><%= @trip.max_participants %></span>
+    </div>
+    <div class="trip-info">
+      <span class="info-q">Organised by?</span> <span class="info-a"><%= link_to @trip.organizer.username, user_path(@trip.organizer) %></span>
+    </div>
+  </div>
+</div>
