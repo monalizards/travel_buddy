@@ -31,13 +31,4 @@
     <button><%= link_to "Book", book_trip_path(@trip) %></button>
   <% end %>
 
- <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
-
 </div>
