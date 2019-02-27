@@ -4,7 +4,7 @@
   <div class="row">
     <div class="trips-organised">
       <p>The trips that i organised:</p>
-      <% Trip.where(organizer: current_user).each do |trip| %>
+      <% @user.o_trips.each do |trip| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%= render 'card', trip: trip %>
         </div>
