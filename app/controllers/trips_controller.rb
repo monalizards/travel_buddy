@@ -42,7 +42,7 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to trip_path(@trip), notice: 'You created a trip!'
     else
-      flash[:alert] = "Please review the errors"
+      flash[:alert] = "Something went wrong. Please review the errors"
       render :new
     end
   end
@@ -50,8 +50,9 @@ class TripsController < ApplicationController
   def update
     authorize @trip
     if @trip.update(trip_params)
-      redirect_to trips_path
+      redirect_to trip_path(@trip), notice: 'Trip info updated!'
     else
+      flash[:alert] = "Something went wrong. Please review the errors"
       render :edit
     end
   end
