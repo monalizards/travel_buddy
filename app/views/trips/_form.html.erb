@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h3>Update Your Trip</h3>
+      <%= simple_form_for(trip) do |t| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= t.input :title %>
+            <%= t.input :destination, id: "destination" %>
+            <%= t.input :budget %>
+            <div class="form-inline">
+              <%= t.input :start_date %>
+            </div>
+            <div class="form-inline">
+              <%= t.input :end_date %>
+            </div>
+            <%= t.input :max_participants %>
+            <%= t.input :photo %>
+            <%= t.input :photo_cache, as: :hidden %>
+            <div class="form-actions">
+              <%= t.button :submit, "Update" %>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Back", :back %>
