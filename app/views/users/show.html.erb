@@ -1,6 +1,25 @@
 <h1><%= @user.username %></h1>
 <p><%= @user.description %></p>
-<ul><% @user.trips.each do |trip| %>
-  <li><%= trip.title %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="trips-organised">
+      <p>The trips that i organised:</p>
+      <% Trip.where(organizer: current_user).each do |trip| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'card', trip: trip %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="trips-joined">
+      <p>The trips that i'm participating:</p>
+      <% @user.trips.each do |trip| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'card', trip: trip %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<div class="card">
+  <%= link_to trip_path(trip), class: "city-info" do %>
+    <div class="city-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+      <h3><%= trip.title %></h3>
+    </div>
+  <% end %>
+  <div class="city-control">
+    <% if policy(trip).edit? %>
+      <%= link_to 'Edit', edit_trip_path(trip) %>
+    <% end %>
+    <% if policy(trip).edit? %>
+      <%= link_to 'Delete', trip_path(trip), method: :delete, data: { confirm: "Are you sure?"} %>
+    <% end %>
+  </div>
+</div>
