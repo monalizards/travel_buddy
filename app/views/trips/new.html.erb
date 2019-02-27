@@ -1,12 +1,31 @@
-<%= simple_form_for @trip do |f| %>
-  <%= f.input :title %>
-  <%= f.input :destination %>
-  <%= f.input :description %>
-  <%= f.input :budget %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :max_participants %>
-  <%= f.button :submit %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h3>Create a Trip</h3>
+      <%= simple_form_for @trip do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title %>
+          <%= f.input :destination %>
+          <%= f.input :description %>
+          <%= f.input :budget %>
+
+          <div class="form-inline">
+            <%= f.input :start_date %>
+          </div>
+          <div class="form-inline">
+            <%= f.input :end_date %>
+          </div>
+
+          <%= f.input :max_participants %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Back", :back %>
