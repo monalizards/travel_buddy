@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def trips
-    @o_trips = Trip.where(organizer_id: params[:user_id])
+    @o_trips = Trip.where(organizer: @user)
     @p_trips = Participation.where(user: @user).map { |p| p.trip }
   end
 
