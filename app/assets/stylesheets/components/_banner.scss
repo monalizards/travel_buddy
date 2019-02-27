@@ -1,9 +1,26 @@
 .banner {
   background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url('banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
   height: calc(100vh - 70px);
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  h1 {
+    font-family: Pacifico;
+    font-size: 8rem;
+    margin-bottom: 3rem;
+  }
+  p {
+    opacity: 0.8;
+  }
+  .btn {
+    margin-top: 10rem;
+    transition: all 0.2s ease;
+    border: none;
+    opacity: 0.8;
+  }
 }
