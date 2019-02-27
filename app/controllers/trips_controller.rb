@@ -48,8 +48,11 @@ class TripsController < ApplicationController
 
   def update
     authorize @trip
-    @trip = Trip.update(trip_params)
-    redirect_to trips_path
+    if @trip.update(trip_params)
+      redirect_to trips_path
+    else
+      render :edit
+    end
   end
 
   def destroy
