@@ -1,4 +1,6 @@
 class Trip < ApplicationRecord
+  geocoded_by :destination
+
   mount_uploader :photo, PhotoTripUploader
 
   belongs_to :organizer, class_name: 'User'
@@ -8,6 +10,8 @@ class Trip < ApplicationRecord
   validates :organizer_id, :destination, :start_date, :end_date, :budget,
             :title, :description, :max_participants, presence: true
   validate :date_valid?
+
+  after_validation :geocode, if: :will_save_change_to_destination?
 
   private
 
