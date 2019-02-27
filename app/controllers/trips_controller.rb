@@ -2,11 +2,26 @@ class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy, :book]
 
   def index
+    @trips = Trip.where.not(latitude: nil, longitude: nil)
+
     @trips = policy_scope(Trip).order(created_at: :desc)
+
+    #TO DO MAP FOR INDEX
+
+    # @markers = @flats.map do |flat|
+      # {
+        # lng: flat.longitude,
+        # lat: flat.latitude
+      # }
+    # end
   end
 
   def show
     authorize @trip
+
+    @markers = [{
+      lng: @trip.longitude,
+      lat: @trip.latitude }]
   end
 
   def new
