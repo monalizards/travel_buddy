@@ -9,10 +9,6 @@ class TripPolicy < ApplicationPolicy
     true
   end
 
-  def new?
-    show?
-  end
-
   def edit?
     record.organizer == user
   end
