@@ -19,7 +19,7 @@
       <span class="trip-info-q">When?</span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
     </div>
     <div class="trip-info">
-      <span class="trip-info-q">Budget?</span> <span class="trip-info-a">HKD$<%= @trip.budget %></span>
+      <span class="trip-info-q">Budget?</span> <span class="trip-info-a"><%= @trip.budget %></span>
     </div>
     <div class="trip-info">
       <span class="trip-info-q">Max number of people?</span> <span class="trip-info-a"><%= @trip.max_participants %></span>
