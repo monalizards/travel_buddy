@@ -1,4 +1,7 @@
 <h1><%= @user.username %></h1>
+<% if policy(@user).edit? %>
+  <%= link_to "Change my profile", edit_user_path(@user) %>
+<% end %>
 <p><%= @user.description %></p>
 <div class="container">
   <div class="row">

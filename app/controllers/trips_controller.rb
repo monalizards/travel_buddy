@@ -40,8 +40,9 @@ class TripsController < ApplicationController
     @trip.organizer = current_user
 
     if @trip.save
-      redirect_to trips_path
+      redirect_to trip_path(@trip), notice: 'You created a trip!'
     else
+      flash[:alert] = "Please review the errors"
       render :new
     end
   end

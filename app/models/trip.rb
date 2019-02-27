@@ -11,6 +11,8 @@ class Trip < ApplicationRecord
             :title, :description, :max_participants, presence: true
   validate :date_valid?
 
+  validates :title, presence: true, uniqueness: true, length: { maximum: 30 }
+
   after_validation :geocode, if: :will_save_change_to_destination?
 
   private

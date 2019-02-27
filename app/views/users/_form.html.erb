@@ -9,6 +9,10 @@
     <%= f.input :username %>
     <%= f.input :description %>
 
+    <%= f.input :current_password,
+                hint: "we need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -16,10 +20,6 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
   </div>
