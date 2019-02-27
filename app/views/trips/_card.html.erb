@@ -1,8 +1,16 @@
 <div class="card">
-  <%= link_to trip_path(trip), class: "city-info" do %>
-    <div class="city-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
-      <h3><%= trip.title %></h3>
-    </div>
+  <% if trip.photo.present? %>
+    <%= link_to trip_path(trip), class: "city-info" do %>
+      <div class="city-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
+        <h3><%= trip.title %></h3>
+      </div>
+    <% end %>
+  <% else %>
+   <%= link_to trip_path(trip), class: "city-info" do %>
+      <div class="city-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+        <h3><%= trip.title %></h3>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="city-control">
