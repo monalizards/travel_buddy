@@ -1,12 +1,12 @@
-<h1>Trips</h1>
-
 <div class="container">
-  <div class="row">
-    <% @trips.each do |trip| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= render 'card', trip: trip %>
-      </div>
-    <% end %>
+  <h1>Trips</h1>
+  <div class="card-container">
+    <div class="row">
+      <% @trips.each do |trip| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'card', trip: trip %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-

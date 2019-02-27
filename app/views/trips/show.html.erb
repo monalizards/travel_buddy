@@ -2,7 +2,7 @@
   <h1><%= @trip.title %></h1>
   <div class="trip-photo"></div>
   <div class="trip-buddy">Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %></div>
-  <span><%= @trip.description %></span>
+  <span><%= simple_format(@trip.description) %></span>
   <h2>Trip details</h2>
   <div class="trip-info-container">
     <div class="trip-info">
