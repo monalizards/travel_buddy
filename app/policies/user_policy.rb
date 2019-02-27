@@ -11,6 +11,10 @@ class UserPolicy < ApplicationPolicy
     edit?
   end
 
+  def trips?
+    record == user
+  end
+
   class Scope < Scope
     def resolve
       scope.all

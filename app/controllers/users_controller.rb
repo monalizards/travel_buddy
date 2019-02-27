@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
-  before_action :authorize_user, only: [:edit, :show, :update]
+  before_action :find_user, only: [:show, :edit, :update, :trips]
+  before_action :authorize_user, only: [:edit, :show, :update, :trips]
 
   def show
   end
@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   end
 
   def trips
-    @trips = Trip.where(organizer_id: params[:user_id])
-    @participations = Participation.where(params[:user_id])
+    @o_trips = Trip.where(organizer_id: params[:user_id])
+    @p_trips = Participation.where(user: @user).map { |p| p.trip }
   end
 
   private
