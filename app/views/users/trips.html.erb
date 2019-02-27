@@ -1,15 +1,22 @@
-<h1>all the trips that I have</h1>
-
-<h2>I organised these trips</h2>
-<ul>
-  <% @o_trips.each do |o_trip| %>
-    <li><%= link_to o_trip.title, trip_path(o_trip) %></li>
-  <% end %>
-</ul>
-
-<h2>I joined these trips</h2>
-<ul>
-  <% @p_trips.each do |p_trip| %>
-    <li><%= link_to p_trip.title, trip_path(p_trip) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="trips-organised">
+      <h2>The trips that i organised:</h2>
+      <% @o_trips.each do |o_trip| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'card', trip: o_trip %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="trips-joined">
+      <h2>The trips that i'm participating:</h2>
+      <% @p_trips.each do |p_trip| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'card', trip: p_trip %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
