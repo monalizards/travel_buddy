@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :authorize_user, only: [:edit, :show, :update, :trips]
 
   def show
+    @o_trips = Trip.where(organizer: @user)
+    @p_trips = Participation.where(user: @user).map { |p| p.trip }
   end
 
   def edit
