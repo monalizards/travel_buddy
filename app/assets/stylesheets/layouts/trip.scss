@@ -1,37 +1,71 @@
-.container{
+.show-container{
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 40% 10%;
-  margin: 50px 100px;
+  grid-template-rows: 40% 40% 20%;
+  margin: 100px 50px;
+  grid-template-areas: "photo details"
+                       "participants"
+                       "weather  map";
 }
 
 .trip-info-container{
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
+  padding: 0px 30px;
 }
 
 .trip-image-container{
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
+  align-items: left;
 }
 
-.trip-participants{
+.trip-show-participants{
   grid-row: 2 / span 1;
   grid-column: 1 / span 2;
   text-align: center;
-  justify-content: center;
+  padding: 10px 0px;
 }
 
-.trip-info{
+.trip-info-show{
+  align-items: left;
   justify-content: space-between;
 }
 
-.trip-image-show{
-  width: 100px;
-  height: 100px;
+.trip-image-show {
+  grid-area: photo;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+.trip-show-user-participants {
+  a {
+    color: #77787d;
+  }
+
+  a:hover{
+    color: #278f75 ;
+  }
+
 }
 
-#map{
+.trip-buddy-show {
+  a {
+    color: #77787d;
+  }
+
+  a:hover{
+    color: #278f75 ;
+  }
+
+}
+
+#map {
   grid-row: 3 / span 1;
   grid-column: 2 / span 1;
+}
+
+.btn-show {
+  width: 400px;
 }
