@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     member do
       get 'book'
     end
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
 end
