@@ -10,10 +10,8 @@
           <%= f.input :budget %>
 
           <div class="form-inline">
-            <%= f.input :start_date %>
-          </div>
-          <div class="form-inline">
-            <%= f.input :end_date %>
+            <%= f.date_field :start_date, min: Date.today %>
+            <%= f.date_field :end_date, min: Date.today %>
           </div>
 
           <%= f.input :max_participants %>

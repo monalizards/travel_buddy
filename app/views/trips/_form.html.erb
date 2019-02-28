@@ -9,10 +9,8 @@
             <%= t.input :destination, id: "destination" %>
             <%= t.input :budget %>
             <div class="form-inline">
-              <%= t.input :start_date %>
-            </div>
-            <div class="form-inline">
-              <%= t.input :end_date %>
+              <%= t.date_field :start_date, min: Date.today %>
+              <%= t.date_field :end_date, min: Date.today %>
             </div>
             <%= t.input :max_participants %>
             <%= t.input :photo %>
