@@ -9,7 +9,7 @@
       <p>The trips that i organised:</p>
       <% @user.o_trips.each do |trip| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'card', trip: trip %>
+          <%= render '/trips/card', trip: trip %>
         </div>
       <% end %>
     </div>
@@ -19,7 +19,7 @@
       <p>The trips that i'm participating:</p>
       <% @user.trips.each do |trip| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'card', trip: trip %>
+          <%= render 'trips/card', trip: trip %>
         </div>
       <% end %>
     </div>
