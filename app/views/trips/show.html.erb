@@ -2,10 +2,10 @@
 
   <div class="trip-image-container">
     <% if @trip.photo.present? %>
-      <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @trip.photo %>)">
+      <div class="trip-image-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @trip.photo %>)">
       </div>
     <% else %>
-      <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+      <div class="trip-image-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
       </div>
     <% end %>
   </div>
@@ -18,19 +18,19 @@
       My Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %>
     </div>
     <br>
-    <div class="trip-info">
+    <div class="trip-info-show">
       <span class="trip-info-q"><i class="fas fa-map-marker"></i></span> <span class="trip-info-a"><%= @trip.destination.capitalize %></span>
     </div>
-    <div class="trip-info">
+    <div class="trip-info-show">
       <span class="trip-info-q"><i class="far fa-calendar-alt"></i></span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
     </div>
-    <div class="trip-info">
+    <div class="trip-info-show">
       <span class="trip-info-q"><i class="fas fa-dollar-sign"></i></span> <span class="trip-info-a"><%= @trip.budget %></span>
     </div>
-    <div class="trip-info">
+    <div class="trip-info-show">
       <span class="trip-info-q"><i class="fas fa-male"></i></span> Max <span class="trip-info-a"><%= @trip.max_participants %> people</span>
     </div>
-    <div class="trip-details">
+    <div class="trip-details-show">
       <h2>Trip details</h2>
       <span><%= simple_format(@trip.description) %></span>
     </div>
