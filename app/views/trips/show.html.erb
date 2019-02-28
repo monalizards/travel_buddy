@@ -21,7 +21,7 @@
       </div>
       <br>
       <div class="trip-info-show">
-        <span><i class="fas fa-map-marker"></i></span> <span class="trip-info-a"><%= @trip.destination.capitalize %></span>
+        <span id="place"><i class="fas fa-map-marker"></i></span> <span class="trip-info-a"><%= @trip.destination.capitalize %></span>
       </div>
       <div class="trip-info-show">
         <span><i class="far fa-calendar-alt"></i></span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
@@ -54,6 +54,13 @@
           <% end %>
         </ul>
       </div>
+    </div>
+
+    <div class="weather-box" data-weather-api-key="<%= ENV['WEATHER_API_KEY'] %>">
+        <h1 id="city-name"><%= @weather['name'] %></h1>
+        <h2 id="clouds"><%= @weather['weather'][0]['main'] %></h2>
+        <p id="sky"><%= @weather['weather'][0]['description']%></p>
+        <div id="temperature"><%=  (@weather['main']['temp'] - 273.15).to_i%> °C</div>
     </div>
 
 
