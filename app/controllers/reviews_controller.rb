@@ -1,32 +1,46 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all.trip
-  end
-
-  def new
-    @review = Review.new
-  end
+  before_action :find_review, only: [:update, :destroy]
+  before_action :find_trip
 
   def create
-    @review = Review.create
-    authorize @review
-  end
+    @review = Review.new(review_params)
+    @review.trip = @trip
 
-  def edit
+    authorize @review
+
+    if @review.save
+      redirect_to @trip
+    else
+      render 'trips/show'
+    end
   end
 
   def update
+    authorize @review
+    if @review.update(review_params)
+      redirect_to @trip
+    else
+      render 'trips/show'
+    end
   end
 
   def destroy
-  end
-
-  def trips
+    authorize @review
+    @review.destroy
+    redirect_to @trip
   end
 
   private
 
   def review_params
-    params.require(:review).permit()
+    params.require(:review).permit(:comment, :user_id)
+  end
+
+  def find_trip
+    @trip = Trip.find(params[:trip_id])
+  end
+
+  def find_review
+    @review = Review.find(params[:id])
   end
 end
