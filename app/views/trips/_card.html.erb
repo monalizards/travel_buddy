@@ -1,24 +1,48 @@
-<div class="card">
-  <% if trip.photo.present? %>
-    <%= link_to trip_path(trip), class: "city-info" do %>
-      <div class="city-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
-        <h3><%= trip.title %></h3>
-      </div>
-    <% end %>
-  <% else %>
-   <%= link_to trip_path(trip), class: "city-info" do %>
-      <div class="city-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
-        <h3><%= trip.title %></h3>
-      </div>
-    <% end %>
-  <% end %>
+<div class="card-trip">
+  <%= link_to trip_path(trip), class: "trip-info" do %>
 
-  <div class="city-control">
-    <% if policy(trip).edit? %>
-      <%= link_to 'Edit', edit_trip_path(trip) %>
-    <% end %>
-    <% if policy(trip).edit? %>
-      <%= link_to 'Delete', trip_path(trip), method: :delete, data: { confirm: "Are you sure?"} %>
-    <% end %>
-  </div>
+    <div class="card-header">
+      <!-- trip destination -->
+      <div class="trip-destination"><%= trip.destination.split(',').first %></div>
+      <!-- trip budget -->
+      <div class="trip-budget">
+        <%= trip.budget %>
+      </div>
+    </div>
+
+
+
+    <!-- trip photo -->
+    <div class="card-image">
+      <% if trip.photo.present? %>
+        <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
+          <h3><%= trip.title %></h3>
+        </div>
+      <% else %>
+        <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+          <h3><%= trip.title %></h3>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="card-info">
+      <!-- trip availability -->
+      <div class="trip-availability">
+        <% availability = trip.max_participants - trip.participations.count %>
+        <% if availability > 5 %>
+          vailable
+        <% elsif availability > 0 %>
+          Last <%= availability %> spots
+        <% else %>
+          Sold out
+        <% end %>
+      </div>
+
+      <!-- trip dates -->
+      <div class="trip-dates">
+        <%= trip.start_date.strftime("%d %b %Y") %> -  <%= trip.end_date.strftime("%d %b %Y") %>
+      </div>
+    </div>
+
+  <% end %>
 </div>
