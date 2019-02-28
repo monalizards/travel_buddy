@@ -26,12 +26,12 @@
   justify-content: space-between;
 }
 
+.trip-image-show{
+  width: 100px;
+  height: 100px;
+}
+
 #map{
   grid-row: 3 / span 1;
   grid-column: 2 / span 1;
-}
-
-.btn{
-  width: 200px;
-
 }
