@@ -1,7 +1,8 @@
+
 .show-container{
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 40% 40% 20%;
+  grid-template-rows: 40% 40% 50%;
   margin: 100px 50px;
   grid-template-areas: "photo details"
                        "participants"
@@ -69,3 +70,18 @@
 .btn-show {
   width: 400px;
 }
+/* WEATHER*/
+
+.weather-box {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+ #text{
+  width: 300px;
+  height:32px;
+ }
+

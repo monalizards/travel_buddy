@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
   <div class="user-profile">
     <div class="row">
       <div class="col-xs-12 col-md-4">
@@ -31,13 +32,29 @@
           <div class="trips-organised">
             <p>Trips i organised:</p>
             <% @user.o_trips.each do |trip| %>
-                <%= render 'card', trip: trip %>
+              <% if trip.photo.present? %>
+                <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
+                  <h3><%= trip.title %></h3>
+                </div>
+              <% else %>
+                <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+                  <h3><%= trip.title %></h3>
+                </div>
+              <% end %>
             <% end %>
           </div>
           <div class="trips-joined">
             <p>Trips i joined:</p>
             <% @user.trips.each do |trip| %>
-                <%= render 'card', trip: trip %>
+              <% if trip.photo.present? %>
+                <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
+                  <h3><%= trip.title %></h3>
+                </div>
+              <% else %>
+                <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+                  <h3><%= trip.title %></h3>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>

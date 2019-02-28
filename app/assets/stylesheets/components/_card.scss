@@ -1,7 +1,7 @@
 .card-trip {
   background-color: rgba(0,0,0,0.2);
   width: auto;
-  height: 280px;
+  height: 320px;
   border: 1px;
   border-radius: 1px;
   color: white;
@@ -20,18 +20,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .trip-destination {
+  .card-trip-destination {
     font-weight: bold;
     padding-left: 1rem;
   }
-  .trip-budget {
+  .card-trip-budget {
     opacity: 0.9;
     font-weight: lighter;
     padding-right: 1rem;
   }
 }
 
-.trip-image {
+.card-trip-image {
   position: absolute;
   top: 60px;
   width: 100%;
@@ -46,7 +46,7 @@
 
 .card-info {
   position: absolute;
-  height: 40px;
+  height: 80px;
   width: 100%;
   bottom: 0;
   display: flex;
@@ -55,7 +55,7 @@
   padding: 1rem;
 }
 
-.trip-dates {
+.card-trip-dates {
   font-size: 0.8em;
 }
 
@@ -63,4 +63,7 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }

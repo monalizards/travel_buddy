@@ -4,7 +4,7 @@
       <h2>The trips that i organised:</h2>
       <% @o_trips.each do |o_trip| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'card', trip: o_trip %>
+          <%= render 'trips/card', trip: o_trip %>
         </div>
       <% end %>
     </div>
@@ -14,7 +14,7 @@
       <h2>The trips that i'm participating:</h2>
       <% @p_trips.each do |p_trip| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'card', trip: p_trip %>
+          <%= render 'trips/card', trip: p_trip %>
         </div>
       <% end %>
     </div>

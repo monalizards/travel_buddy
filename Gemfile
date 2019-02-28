@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
 gem 'geocoder'
+gem 'open-weather-api'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
