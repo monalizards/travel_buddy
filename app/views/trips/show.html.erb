@@ -1,42 +1,60 @@
 <div class="container">
-  <h1><%= @trip.title %></h1>
-  <% if @trip.photo.present? %>
-    <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @trip.photo %>)">
-    </div>
-  <% else %>
-    <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
-    </div>
-  <% end %>
 
-  <div class="trip-buddy">Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %></div>
-  <span><%= simple_format(@trip.description) %></span>
-  <h2>Trip details</h2>
-  <div class="trip-info-container">
-    <div class="trip-info">
-      <span class="trip-info-q">Where?</span> <span class="trip-info-a"><%= @trip.destination %></span>
-    </div>
-    <div class="trip-info">
-      <span class="trip-info-q">When?</span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
-    </div>
-    <div class="trip-info">
-      <span class="trip-info-q">Budget?</span> <span class="trip-info-a"><%= @trip.budget %></span>
-    </div>
-    <div class="trip-info">
-      <span class="trip-info-q">Max number of people?</span> <span class="trip-info-a"><%= @trip.max_participants %></span>
-    </div>
+  <div class="trip-image-container">
+    <% if @trip.photo.present? %>
+      <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @trip.photo %>)">
+      </div>
+    <% else %>
+      <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+      </div>
+    <% end %>
   </div>
 
-  <h2>Other travellers</h2>
-  <ul>
-    <% @trip.users.each do |user| %>
-      <li>
-        <%= link_to user.username, user_path(user) %>
-      </li>
+
+  <div class="trip-info-container">
+    <h1><%= @trip.title.split.map(&:capitalize).join(' ') %></h1>
+
+    <div class="trip-buddy">
+      My Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %>
+    </div>
+    <br>
+    <div class="trip-info">
+      <span class="trip-info-q"><i class="fas fa-map-marker"></i></span> <span class="trip-info-a"><%= @trip.destination.capitalize %></span>
+    </div>
+    <div class="trip-info">
+      <span class="trip-info-q"><i class="far fa-calendar-alt"></i></span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
+    </div>
+    <div class="trip-info">
+      <span class="trip-info-q"><i class="fas fa-dollar-sign"></i></span> <span class="trip-info-a"><%= @trip.budget %></span>
+    </div>
+    <div class="trip-info">
+      <span class="trip-info-q"><i class="fas fa-male"></i></span> Max <span class="trip-info-a"><%= @trip.max_participants %> people</span>
+    </div>
+    <div class="trip-details">
+      <h2>Trip details</h2>
+      <span><%= simple_format(@trip.description) %></span>
+    </div>
+    <% if @trip.users.count < @trip.max_participants %>
+      <button class= "btn btn-success btn-lg" style= "color:white">
+        <%= link_to "Book", book_trip_path(@trip) %>
+      </button>
+
+
+
     <% end %>
-  </ul>
-  <% if @trip.users.count < @trip.max_participants %>
-    <button><%= link_to "Book", book_trip_path(@trip) %></button>
-  <% end %>
+  </div>
+
+  <div class="trip-participants">
+    <h2>Other travellers</h2>
+    <ul>
+      <% @trip.users.each do |user| %>
+        <li>
+          <%= link_to user.username, user_path(user) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
 
  <div
   id="map"
