@@ -15,27 +15,32 @@
     <h1><%= @trip.title.split.map(&:capitalize).join(' ') %></h1>
 
     <div class="trip-buddy">
-
-      Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %>
+      My Buddy: <%= link_to @trip.organizer.username, user_path(@trip.organizer) %>
+    </div>
+    <br>
+    <div class="trip-info">
+      <span class="trip-info-q"><i class="fas fa-map-marker"></i></span> <span class="trip-info-a"><%= @trip.destination.capitalize %></span>
     </div>
     <div class="trip-info">
-      <span class="trip-info-q">Where?</span> <span class="trip-info-a"><%= @trip.destination.capitalize %></span>
+      <span class="trip-info-q"><i class="far fa-calendar-alt"></i></span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
     </div>
     <div class="trip-info">
-      <span class="trip-info-q">When?</span> <span class="trip-info-a"><%= @trip.start_date.strftime("%d %b %Y") %> to <%= @trip.end_date.strftime("%d %b %Y") %></span>
+      <span class="trip-info-q"><i class="fas fa-dollar-sign"></i></span> <span class="trip-info-a"><%= @trip.budget %></span>
     </div>
     <div class="trip-info">
-      <span class="trip-info-q">Budget?</span> <span class="trip-info-a"><%= @trip.budget %></span>
-    </div>
-    <div class="trip-info">
-      <span class="trip-info-q">Max number of people?</span> <span class="trip-info-a"><%= @trip.max_participants %></span>
+      <span class="trip-info-q"><i class="fas fa-male"></i></span> Max <span class="trip-info-a"><%= @trip.max_participants %> people</span>
     </div>
     <div class="trip-details">
       <h2>Trip details</h2>
       <span><%= simple_format(@trip.description) %></span>
     </div>
     <% if @trip.users.count < @trip.max_participants %>
-      <button><%= link_to "Book", book_trip_path(@trip) %></button>
+      <button class= "btn btn-success btn-lg" style= "color:white">
+        <%= link_to "Book", book_trip_path(@trip) %>
+      </button>
+
+
+
     <% end %>
   </div>
 
