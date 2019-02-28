@@ -124,6 +124,8 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    open-weather-api (0.0.7)
+      rest-client (~> 2.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
     pry (0.12.2)
@@ -243,6 +245,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  open-weather-api
   pg (~> 0.21)
   pry-byebug
   pry-rails
