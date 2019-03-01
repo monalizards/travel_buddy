@@ -1,31 +1,107 @@
-.user-column {
-  margin: 10px;
-  padding: 10px;
+.profile-header {
+  // text-align: center;
+  position: relative;
 }
 
-.first-column {
-  background: white;
-  border: 0.5px solid lightgrey;
-  border-radius: 5px;
+#profile-map {
+  // display: flex;
+  // align-items: center;
+  // text-align: center;
+  background: cover;
+  height: 300px;
+  // text-align: center;
+  // position: relative;
+}
+
+.profile-avatar {
+    position: absolute;
+    bottom: -75px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.profile-avatar img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.profile-content {
+  margin-top: 50px;
+}
+
+.user-info {
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
 }
 
-.first-column a {
+.user-info h3 {
+  font-size: 25px;
+}
+
+.user-info a {
   color: lightgrey;
 }
 
-.first-column a:hover {
+.user-info a:hover {
   color: darkgrey;
 }
 
-.user-photo {
-  margin: 5px;
+.profile-header-card {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.profile-picture {
-  height: 200px;
+.h-card-content h3 {
+  font-size: 20px;
 }
 
-.user-column {
-  vertical-align: center;
+.trip-content {
+  // padding: 20px;
+  background-color: white;
+  margin-top: 5px;
+  // display: flex;
+  border: 1px solid rgba(220,224,244,0.4);
+  // border-radius: 5px;
+  height: 125px;
+  // width: 100%;
+  // justify-content: space-between;
+  // padding: 10px;
 }
+
+.trip-dates {
+  font-size: 13px;
+  margin-top: 45px;
+  margin-left: 45px;
+}
+
+.trip-image {
+  height: 100px;
+  margin-top: 12.5px;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.trip-where {
+  margin-top: 56px;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.trip-status {
+  margin-top: 55px;
+  margin-right: 15px;
+}
+
+.trip-status p {
+  font-size: 15px;
+  font-weight: bold;
+}
+

@@ -5,6 +5,13 @@ class UsersController < ApplicationController
   def show
     @o_trips = Trip.where(organizer: @user)
     @p_trips = Participation.where(user: @user).map { |p| p.trip }
+    @trips = @o_trips + @p_trips
+    @markers = @trips.map do |trip|
+      {
+        lng: trip.longitude,
+        lat: trip.latitude
+      }
+    end
   end
 
   def edit
