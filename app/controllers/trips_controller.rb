@@ -20,6 +20,7 @@ class TripsController < ApplicationController
 
     @weather = Rails.configuration.open_weather_api.current lon: @trip.longitude, lat: @trip.latitude
     @message = Message.new
+    @participation = Participation.new
   end
 
   def new
