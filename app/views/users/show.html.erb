@@ -5,7 +5,7 @@
         <div class="user-column first-column">
           <div class="user-photo">
             <% if current_user.photo.present? %>
-            <%= cl_image_tag current_user.photo, class: "profile-picture" %>
+              <%= cl_image_tag current_user.photo, class: "profile-picture" %>
             <% else %>
               <%= image_tag asset_path("default_avatar.png"), class: "profile-picture" %>
             <% end %>
@@ -15,9 +15,9 @@
             <p>Created at: <%= @user.created_at.strftime("%d %b %Y") %></p>
             <p>Trips organised: <%= @o_trips.count %></p>
             <p>Trips joined: <%= @p_trips.count %></p>
-            <p><% if policy(@user).edit? %>
+            <% if policy(@user).edit? %>
               <%= link_to "Change my profile", edit_user_path(@user) %>
-            <% end %></p>
+            <% end %>
           </div>
         </div>
       </div>
