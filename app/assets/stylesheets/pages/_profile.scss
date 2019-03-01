@@ -96,7 +96,7 @@
 }
 
 .trip-status {
-  margin-top: 55px;
+  margin-top: 40px;
   margin-right: 15px;
 }
 
@@ -105,3 +105,12 @@
   font-weight: bold;
 }
 
+.trip-status a {
+  font-size: 15px;
+  color: lightgrey;
+}
+
+.trip-status a:hover {
+  font-size: 15px;
+  color: darkgrey;
+}
