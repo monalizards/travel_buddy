@@ -1,0 +1,31 @@
+.user-column {
+  margin: 10px;
+  padding: 10px;
+}
+
+.first-column {
+  background: white;
+  border: 0.5px solid lightgrey;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.first-column a {
+  color: lightgrey;
+}
+
+.first-column a:hover {
+  color: darkgrey;
+}
+
+.user-photo {
+  margin: 5px;
+}
+
+.profile-picture {
+  height: 200px;
+}
+
+.user-column {
+  vertical-align: center;
+}
