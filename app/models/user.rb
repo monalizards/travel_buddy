@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_many :o_trips, foreign_key: :organizer_id, class_name: 'Trip'
   has_many :reviews
+  has_many :messages
 
   # trips refers to association for participating trips
 

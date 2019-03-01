@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_105257) do
+ActiveRecord::Schema.define(version: 2019_02_28_181900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "trip_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_chats_on_trip_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "trip_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_messages_on_trip_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "participations", force: :cascade do |t|
     t.bigint "user_id"
@@ -66,6 +86,10 @@ ActiveRecord::Schema.define(version: 2019_02_28_105257) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chats", "trips"
+  add_foreign_key "chats", "users"
+  add_foreign_key "messages", "trips"
+  add_foreign_key "messages", "users"
   add_foreign_key "participations", "trips"
   add_foreign_key "participations", "users"
   add_foreign_key "reviews", "trips"

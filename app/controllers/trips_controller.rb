@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :find_trip, only: [:show, :edit, :update, :destroy, :book]
+  before_action :find_trip, only: [:show, :edit, :update, :destroy, :book, :message]
 
   def index
     @trips = Trip.where.not(latitude: nil, longitude: nil)
@@ -22,6 +22,8 @@ class TripsController < ApplicationController
     @markers = [{
       lng: @trip.longitude,
       lat: @trip.latitude }]
+
+    @message = Message.new
   end
 
   def new
