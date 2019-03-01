@@ -1,6 +1,4 @@
 class Trip < ApplicationRecord
-  include PgSearch
-
   geocoded_by :destination
 
   mount_uploader :photo, PhotoTripUploader
@@ -18,14 +16,6 @@ class Trip < ApplicationRecord
   validates :title, presence: true, uniqueness: true, length: { maximum: 30 }
 
   after_validation :geocode, if: :will_save_change_to_destination?
-
-
-  pg_search_scope :search_by_destination,
-  against: :destination,
-    using: {
-      tsearch: { prefix: true }
-    }
-
 
   private
 

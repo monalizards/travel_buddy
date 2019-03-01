@@ -3,7 +3,7 @@ class TripsController < ApplicationController
 
   def index
     if params[:query].present?
-      @trips = policy_scope(Trip).search_by_destination(params[:query])
+      @trips = policy_scope(Trip).where("destination ILIKE ?", "%#{params[:query]}%")
     else
       @trips = policy_scope(Trip).where.not(latitude: nil, longitude: nil)
     end
