@@ -21,7 +21,6 @@ gem 'webpacker'
 gem 'pundit'
 gem 'geocoder'
 gem 'open-weather-api'
-gem 'pg_search'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
