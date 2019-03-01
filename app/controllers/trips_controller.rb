@@ -19,11 +19,13 @@ class TripsController < ApplicationController
   def show
     authorize @trip
 
-    @weather = Rails.configuration.open_weather_api.current city: @trip.destination
 
     @markers = [{
       lng: @trip.longitude,
       lat: @trip.latitude }]
+
+
+      @weather = Rails.configuration.open_weather_api.current lon: @trip.longitude, lat: @trip.latitude
   end
 
   def new
