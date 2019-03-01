@@ -5,7 +5,7 @@
       <i class="fas fa-plane"></i>
     <% end %>
 
-    <%= form_tag trips_path, method: :get do %>
+    <%= form_tag '/trips#trips', method: :get do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control form-nav",
