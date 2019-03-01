@@ -1,11 +1,11 @@
 <div class="card-trip">
-  <%= link_to trip_path(trip), class: "trip-info" do %>
+  <%= link_to trip_path(trip), class: "card-trip-info" do %>
 
     <div class="card-header">
       <!-- trip destination -->
-      <div class="trip-destination"><%= trip.destination.split(',').first %></div>
+      <div class="card-trip-destination"><%= trip.destination.split(',').first %></div>
       <!-- trip budget -->
-      <div class="trip-budget">
+      <div class="card-trip-budget">
         <%= trip.budget %>
       </div>
     </div>
@@ -15,21 +15,25 @@
     <!-- trip photo -->
     <div class="card-image">
       <% if trip.photo.present? %>
-        <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
+        <div class="card-trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path trip.photo %>)">
           <h3><%= trip.title %></h3>
-          <%= cl_image_tag trip.organizer.photo, class: "card-avatar" %>
+          <% if trip.organizer.photo.present? %>
+            <%= cl_image_tag trip.organizer.photo, class: "card-avatar" %>
+          <% end %>
         </div>
       <% else %>
-        <div class="trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
+        <div class="card-trip-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url('city-images/lisbon.jpg') %>)">
           <h3><%= trip.title %></h3>
-          <%= cl_image_tag trip.organizer.photo, class: "card-avatar" %>
+          <% if trip.organizer.photo.present? %>
+            <%= cl_image_tag trip.organizer.photo, class: "card-avatar" %>
+          <% end %>
         </div>
       <% end %>
     </div>
 
     <div class="card-info">
       <!-- trip availability -->
-      <div class="trip-availability">
+      <div class="card-trip-availability">
         <% availability = trip.max_participants - trip.participations.count %>
         <% if availability > 5 %>
           vailable
@@ -41,8 +45,8 @@
       </div>
 
       <!-- trip dates -->
-      <div class="trip-dates">
-        <%= trip.start_date.strftime("%d %b %Y") %> -  <%= trip.end_date.strftime("%d %b %Y") %>
+      <div class="card-trip-dates">
+        <%= trip.start_date.strftime("%d %b %Y") %> - <br> <%= trip.end_date.strftime("%d %b %Y") %>
       </div>
     </div>
 
