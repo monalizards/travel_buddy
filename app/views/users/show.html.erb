@@ -69,8 +69,10 @@
                 <div class="trip-status">
                   <% if trip.organizer == @user %>
                     <p>Organiser</p>
-                    <%= link_to edit_trip_path(trip), class: "trip-edit" do %>
+                    <% if trip.organizer == current_user %>
+                      <%= link_to edit_trip_path(trip), class: "trip-edit" do %>
                       Edit trip
+                      <% end %>
                     <% end %>
                   <% else %>
                     <p>Participating</p>
