@@ -3,6 +3,13 @@
   <h1>Trips</h1>
   <div class="card-container">
     <div class="row">
+       <%= form_tag trips_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a trip"
+        %>
+      <% end %>
       <% @trips.each do |trip| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%= render 'card', trip: trip %>
