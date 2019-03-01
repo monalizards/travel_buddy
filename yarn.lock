@@ -4141,10 +4141,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mapbox-gl@^0.53.0:
-  version "0.53.0"
-  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-0.53.0.tgz#b5b7e1da7d839fa019be1ae2a36fa098d8c634ce"
-  integrity sha512-bqD0VTpjD9jS/oXoSiLcUYViFXDvjIDWxo08Pfq5cgCdnRHoLEboItuB2AKsx8OPK5fYme0qhPe/ogF5HICjiA==
+mapbox-gl@^0.53.1:
+  version "0.53.1"
+  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-0.53.1.tgz#08a956d8da54b04bc7f29ab1319bddb9c97ddedf"
+  integrity sha512-dTtW/qlkUowKGlqOhE8fqII2Tj4lcokvlZwUDLnkjy4uQ9zMFnVBULGeSzzTVkj9HtQZ3Zbey10/jmoVPV9t5w==
   dependencies:
     "@mapbox/geojson-rewind" "^0.4.0"
     "@mapbox/geojson-types" "^1.0.2"
