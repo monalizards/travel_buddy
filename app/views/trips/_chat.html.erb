@@ -1,0 +1,6 @@
+<h3>Chat panel</h3>
+<%= simple_form_for(message) do |f| %>
+  <%= f.hidden_field :trip_id, value: @trip.id %>
+  <%= f.input :message %>
+  <%= f.button :submit %>
+<% end %>

@@ -7,6 +7,7 @@ class Trip < ApplicationRecord
   has_many :participations
   has_many :users, through: :participations
   has_many :reviews
+  has_many :messages
 
   validates :organizer_id, :destination, :start_date, :end_date, :budget,
             :title, :description, :max_participants, presence: true
