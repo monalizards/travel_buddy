@@ -1,8 +1,19 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <i class="fas fa-plane"></i>
-  <% end %>
+  <div class="nav-left">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <i class="fas fa-plane"></i>
+    <% end %>
+
+    <%= form_tag trips_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control form-nav",
+            placeholder: "Find a trip",
+            value: ''
+          %>
+        <% end %>
+  </div>
 
   <!-- Right Navigation -->
 
