@@ -1,9 +1,7 @@
 <h3>Chat panel</h3>
-<ul>
   <% @trip.messages.each do |message| %>
-    <li><%= render "message", message: message %></li>
+    <p><%= render "message", message: message %></p>
   <% end %>
-</ul>
 
 <%= simple_form_for(message) do |f| %>
   <%= f.hidden_field :trip_id, value: @trip.id %>

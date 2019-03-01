@@ -42,19 +42,26 @@
         </button>
       <% end %>
     </div>
-
     <div class="trip-show-participants">
-      <h2>Other travellers</h2>
-      <div class="trip-show-user-participants">
-        <ul>
-          <% @trip.users.each do |user| %>
-            <li style="list-style-type: none;">
-              <%= link_to user.username, user_path(user) %>
-            </li>
+        <h3>Other travellers</h3>
+        <div class="trip-show-user-participants">
+          <% if @trip.users.any? %>
+            <ul>
+            <% @trip.users.each do |user| %>
+              <li style="list-style-type: none;">
+                <%= link_to user.username, user_path(user) %>
+              </li>
+            <% end %>
+            </ul>
+          <% else %>
+            No one yet :(
           <% end %>
-        </ul>
+        </div>
       </div>
+    <div class="chat-panel">
+      <%= render "chat", message: @message, trip: @trip %>
     </div>
+
 
     <div class="weather-box" data-weather-api-key="<%= ENV['WEATHER_API_KEY'] %>">
         <h1 id="city-name"><%= @weather['name'] %></h1>
@@ -73,8 +80,5 @@
   ></div>
 
   </div>
-
-  <%= render "chat", message: @message, trip: @trip %>
-
 
 </div>

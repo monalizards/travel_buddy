@@ -1,1 +1,1 @@
-<%= message.user.username %>: <%= message.message %>
+<%= link_to message.user.username, user_path(message.user) %>: <%= message.message %>
