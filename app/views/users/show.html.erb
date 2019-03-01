@@ -31,13 +31,13 @@
           <div class="trips-organised">
             <p>Trips i organised:</p>
             <% @user.o_trips.each do |trip| %>
-                <%= render 'card', trip: trip %>
+              <%= render 'card', trip: trip %>
             <% end %>
           </div>
           <div class="trips-joined">
             <p>Trips i joined:</p>
             <% @user.trips.each do |trip| %>
-                <%= render 'card', trip: trip %>
+              <%= render 'card', trip: trip %>
             <% end %>
           </div>
         </div>
