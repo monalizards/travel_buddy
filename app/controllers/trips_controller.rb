@@ -2,29 +2,21 @@ class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy, :book, :message]
 
   def index
-    @trips = Trip.where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      @trips = policy_scope(Trip).search_by_destination(params[:query])
+    else
+      @trips = policy_scope(Trip).where.not(latitude: nil, longitude: nil)
+    end
 
-    @trips = policy_scope(Trip).order(created_at: :desc)
-
-    #TO DO MAP FOR INDEX
-
-    # @markers = @flats.map do |flat|
-      # {
-        # lng: flat.longitude,
-        # lat: flat.latitude
-      # }
-    # end
+    @trips.order(created_at: :desc)
   end
 
   def show
     authorize @trip
 
-
     @markers = [{
       lng: @trip.longitude,
       lat: @trip.latitude }]
-
-
 
     @weather = Rails.configuration.open_weather_api.current lon: @trip.longitude, lat: @trip.latitude
     @message = Message.new
