@@ -5,8 +5,8 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <div class="profile-avatar">
-      <% if current_user.photo.present? %>
-        <%= cl_image_tag current_user.photo %>
+      <% if @user.photo.present? %>
+        <%= cl_image_tag @user.photo %>
       <% else %>
         <%= image_tag asset_path("default_avatar.png") %>
       <% end %>
@@ -69,8 +69,10 @@
                 <div class="trip-status">
                   <% if trip.organizer == @user %>
                     <p>Organiser</p>
-                    <%= link_to edit_trip_path(trip), class: "trip-edit" do %>
+                    <% if trip.organizer == current_user %>
+                      <%= link_to edit_trip_path(trip), class: "trip-edit" do %>
                       Edit trip
+                      <% end %>
                     <% end %>
                   <% else %>
                     <p>Participating</p>
