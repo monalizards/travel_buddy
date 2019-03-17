@@ -4,7 +4,12 @@
   height: 320px;
   border: 1px;
   border-radius: 1px;
-  color: white;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
   margin: 10px auto;
   position: relative;
   &:hover {
@@ -42,6 +47,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 }
 
 .card-info {
@@ -53,6 +59,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  color: black !important;
+  background-color: white;
 }
 
 .card-trip-dates {
